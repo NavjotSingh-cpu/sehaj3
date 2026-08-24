@@ -14,9 +14,9 @@ colors:
   line: "#DDE5E1"
 typography:
   display:
-    fontFamily: "Avenir Next, Avenir, Segoe UI, sans-serif"
+    fontFamily: "ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif"
   body:
-    fontFamily: "Inter, Avenir Next, Segoe UI, Roboto, sans-serif"
+    fontFamily: "ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif"
   mono:
     fontFamily: "SFMono-Regular, Consolas, Liberation Mono, monospace"
 rounded:
@@ -57,7 +57,7 @@ Deep teal and a warm off-white canvas establish a calm, service-first contrast. 
 
 ## Typography
 
-Avenir Next (with system fallbacks) is only for page titles and service names; Inter/system sans carries long-form, field, and help copy; the system mono stack is reserved for application and payment reference numbers. Labels use sentence case and plain verbs. No all-caps body content.
+The native system sans stack is used for every reading surface: this produces platform-familiar typography with no font download or late layout shift. The system mono stack is reserved for application and payment reference numbers. Labels use sentence case and plain verbs. No all-caps body content.
 
 ## Layout
 

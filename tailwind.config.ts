@@ -29,8 +29,8 @@ const config: Config = {
         line: "#DDE5E1",
       },
       fontFamily: {
-        display: ["Avenir Next", "Avenir", "Segoe UI", "sans-serif"],
-        body: ["Inter", "Avenir Next", "Segoe UI", "Roboto", "sans-serif"],
+        display: ["ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"],
+        body: ["ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"],
         mono: ["SFMono-Regular", "Consolas", "Liberation Mono", "monospace"],
       },
       borderRadius: {
