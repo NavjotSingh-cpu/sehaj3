@@ -1,0 +1,8 @@
+{
+  "name": "Sahaj — Learner's Licence, made clear",
+  "short_name": "Sahaj",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F6F5",
+  "theme_color": "#14213D"
+}
