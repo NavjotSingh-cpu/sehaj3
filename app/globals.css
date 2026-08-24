@@ -8,18 +8,28 @@
   }
   html {
     -webkit-text-size-adjust: 100%;
+    scrollbar-color: #B8C4CF #F5F6F5;
+    scrollbar-gutter: stable;
   }
   body {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    background-image: radial-gradient(circle at 50% -15%, rgba(232, 240, 250, 0.9), transparent 34rem);
+    background:
+      radial-gradient(circle at 100% -10%, rgba(232, 240, 250, 0.95), transparent 28rem),
+      linear-gradient(180deg, #ffffff 0, #f5f6f5 52rem);
+    min-width: 320px;
   }
   h1, h2, h3 {
     @apply font-display;
   }
   :focus-visible {
-    outline: 2px solid #1D5FA3;
-    outline-offset: 2px;
+    outline: 3px solid #1D5FA3;
+    outline-offset: 3px;
   }
+  ::selection { background: #E8F0FA; color: #14213D; }
+  * { scrollbar-width: thin; }
+  *::-webkit-scrollbar { width: 10px; height: 10px; }
+  *::-webkit-scrollbar-thumb { background: #B8C4CF; border: 3px solid #F5F6F5; border-radius: 999px; }
+  *::-webkit-scrollbar-thumb:hover { background: #8798A8; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -32,8 +42,8 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-stamp bg-trust px-5 py-3.5 text-[15px] font-semibold text-white shadow-sm
-    transition-all duration-150 hover:-translate-y-px hover:bg-trust-dark hover:shadow-md active:translate-y-0 active:scale-[0.98] active:bg-trust-dark disabled:cursor-not-allowed disabled:transform-none disabled:bg-line disabled:text-ink/40 disabled:shadow-none;
+    @apply inline-flex items-center justify-center rounded-stamp bg-trust px-5 py-3.5 text-[15px] font-bold text-white shadow-sm
+    transition-all duration-200 hover:-translate-y-px hover:bg-trust-dark hover:shadow-md active:translate-y-0 active:scale-[0.985] active:bg-trust-dark disabled:cursor-not-allowed disabled:transform-none disabled:bg-line disabled:text-ink/40 disabled:shadow-none;
     min-height: 48px;
   }
   .btn-secondary {
@@ -53,7 +63,7 @@
     min-height: 48px;
   }
   .flow-content {
-    animation: flow-enter 260ms ease-out both;
+    animation: flow-enter 340ms cubic-bezier(.2,.8,.2,1) both;
   }
   .utility-panel {
     @apply rounded-stamp border border-line/90 bg-white shadow-card;
@@ -80,10 +90,22 @@
     @apply block h-full w-2/5 rounded-full bg-marigold;
     animation: progress-sweep 1.25s ease-in-out infinite;
   }
+  .page-heading {
+    @apply font-display text-[26px] font-bold tracking-[-0.025em] text-ink sm:text-[30px];
+  }
+  .page-lead {
+    @apply mt-1.5 text-[14.5px] leading-relaxed text-ink/60;
+  }
+  .status-chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-go/15 bg-go-light px-2.5 py-1 text-[11px] font-bold text-go;
+  }
+  .touch-option {
+    @apply min-h-12 rounded-stamp border border-line bg-white px-3 text-[14px] font-semibold text-ink/65 shadow-sm transition-all duration-150 hover:border-trust/30 hover:bg-trust-light/40 active:scale-[0.985];
+  }
 }
 
 @keyframes flow-enter {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -104,3 +126,7 @@
 }
 
 .stamp-done { animation: stamp-confirm 460ms cubic-bezier(.2, .9, .2, 1) both; }
+
+@media (min-width: 640px) {
+  .flow-content { animation-delay: 50ms; }
+}

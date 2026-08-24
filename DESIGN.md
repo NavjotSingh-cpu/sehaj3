@@ -14,11 +14,11 @@ colors:
   line: "#E2E4E2"
 typography:
   display:
-    fontFamily: "Space Grotesk, system-ui, sans-serif"
+    fontFamily: "Avenir Next, Avenir, Segoe UI, sans-serif"
   body:
-    fontFamily: "Inter, system-ui, sans-serif"
+    fontFamily: "Inter, Avenir Next, Segoe UI, Roboto, sans-serif"
   mono:
-    fontFamily: "JetBrains Mono, ui-monospace, monospace"
+    fontFamily: "SFMono-Regular, Consolas, Liberation Mono, monospace"
 rounded:
   DEFAULT: "0.75rem"
   panel: "1.25rem"
@@ -57,7 +57,7 @@ Ink and paper establish calm contrast. Trust blue is reserved for the primary pa
 
 ## Typography
 
-Space Grotesk is only for page titles and service names; Inter carries long-form, field, and help copy; JetBrains Mono is reserved for application and payment reference numbers. Labels use sentence case and plain verbs. No all-caps body content.
+Avenir Next (with system fallbacks) is only for page titles and service names; Inter/system sans carries long-form, field, and help copy; the system mono stack is reserved for application and payment reference numbers. Labels use sentence case and plain verbs. No all-caps body content.
 
 ## Layout
 
