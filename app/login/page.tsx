@@ -59,7 +59,7 @@ export default function LoginPage() {
         <p className="mt-1.5 text-[14.5px] text-ink/60">No account yet? Logging in creates one automatically — this is a demo, not a real Aadhaar or DigiLocker login.</p>
 
         {step === "mobile" && (
-          <form onSubmit={requestOtp} className="mt-6 space-y-4">
+          <form noValidate onSubmit={requestOtp} className="mt-6 space-y-4">
             <button type="button" onClick={() => { setMobile(TEST_MOBILE); setError(""); }} className="w-full rounded-stamp border border-dashed border-marigold-dark/40 bg-marigold-light py-2.5 text-[13px] font-semibold text-marigold-dark">Fill with test mobile number</button>
             <div>
               <label htmlFor="mobile" className="field-label">Mobile number</label>
@@ -71,7 +71,7 @@ export default function LoginPage() {
         )}
 
         {step === "otp" && (
-          <form onSubmit={(e) => { e.preventDefault(); verifyCode(entered); }} className="mt-6 space-y-4">
+          <form noValidate onSubmit={(e) => { e.preventDefault(); verifyCode(entered); }} className="mt-6 space-y-4">
             <div className="card flex items-start gap-2.5 bg-marigold-light p-3.5"><span aria-hidden>🛈</span><p className="text-[13.5px] leading-snug text-ink/80"><strong>Demo mode:</strong> no real SMS is sent. Your one-time code is <span className="font-mono text-[15px] font-semibold text-ink">{demoOtp}</span></p></div>
             <div>
               <p id="otp-label" className="field-label">Enter OTP sent to {mobile}</p>

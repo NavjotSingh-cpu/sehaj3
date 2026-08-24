@@ -46,7 +46,7 @@ export default function DetailsPage() {
         <h1 className="font-display text-[22px] font-bold text-ink">Your details</h1>
         <p className="mt-1 text-[14.5px] text-ink/60">Exactly as they should appear on your licence.</p>
 
-        <form onSubmit={(e) => { e.preventDefault(); continueNext(); }} className="mt-6 space-y-4">
+        <form noValidate onSubmit={(e) => { e.preventDefault(); continueNext(); }} className="mt-6 space-y-4">
           <button
             type="button"
             onClick={() => {
@@ -72,7 +72,7 @@ export default function DetailsPage() {
           <div>
             <label className="field-label">Address</label>
             <textarea
-              className="field-input"
+              className="field-input resize-none"
               rows={3}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
