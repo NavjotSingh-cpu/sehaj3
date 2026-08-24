@@ -45,9 +45,10 @@ export default function SlotPage() {
     <main className="min-h-dvh pb-28">
       <TopBar back={{ href: `/apply/payment/${id}`, label: "Back" }} />
       <ProgressStepper current="slot" />
-      <section className="flow-content mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
-        <h1 className="font-display text-[22px] font-bold text-ink">Book your test slot</h1>
-        <p className="mt-1 text-[14.5px] text-ink/60">
+      <section className="task-shell flow-content">
+        <p className="section-eyebrow">Step 5 · book a slot</p>
+        <h1 className="task-heading mt-2">Book your test slot</h1>
+        <p className="task-intro">
           Slots stay reserved for 10 minutes once you pick them — no racing other applicants for the same
           slot.
         </p>
@@ -92,7 +93,7 @@ export default function SlotPage() {
         {booking && <SuccessFeedback className="mt-5" title="Slot booked" description="Your appointment has been reserved. Opening your confirmation…" />}
       </section>
 
-      <div className="fixed inset-x-0 bottom-0 border-t border-line bg-paper/95 p-4 backdrop-blur">
+      <div className="fixed inset-x-0 bottom-0 sticky-action">
         <div className="mx-auto max-w-lg sm:max-w-xl lg:max-w-2xl">
           <button onClick={confirm} disabled={!date || !time || booking} className="btn-primary w-full">
             {booking ? "Booking slot…" : "Confirm slot"}

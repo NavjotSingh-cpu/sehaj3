@@ -54,9 +54,10 @@ export default function LoginPage() {
   return (
     <main className="min-h-dvh">
       <TopBar back={{ href: "/", label: "Back" }} />
-      <section className="mx-auto w-full max-w-lg px-4 py-8 sm:my-10 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card lg:max-w-2xl">
-        <h1 className="font-display text-[24px] font-bold text-ink">Log in to continue</h1>
-        <p className="mt-1.5 text-[14.5px] text-ink/60">No account yet? Logging in creates one automatically — this is a demo, not a real Aadhaar or DigiLocker login.</p>
+      <section className="task-shell flow-content">
+        <p className="section-eyebrow">Secure access</p>
+        <h1 className="task-heading mt-2">Log in to continue</h1>
+        <p className="task-intro">No account yet? Logging in creates one automatically — this is a demo, not a real Aadhaar or DigiLocker login.</p>
 
         {step === "mobile" && (
           <form noValidate onSubmit={requestOtp} className="mt-6 space-y-4">

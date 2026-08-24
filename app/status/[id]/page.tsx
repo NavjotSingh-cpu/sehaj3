@@ -94,10 +94,10 @@ export default function StatusPage() {
   return (
     <main className="min-h-dvh pb-16">
       <TopBar back={{ href: "/dashboard", label: "Dashboard" }} />
-      <section className="flow-content mx-auto w-full max-w-lg px-4 py-6 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-4xl lg:grid lg:grid-cols-[1.3fr_1fr] lg:gap-10 lg:px-12">
+      <section className="flow-content mx-auto w-full max-w-lg px-5 py-7 sm:my-10 sm:max-w-xl sm:rounded-[28px] sm:border sm:border-line sm:bg-white sm:px-10 sm:py-9 sm:shadow-card lg:max-w-4xl lg:grid lg:grid-cols-[1.3fr_1fr] lg:gap-10 lg:px-12">
         <div>
           <p className="font-mono text-[13px] font-semibold text-ink/45">{application.id}</p>
-          <h1 className="font-display text-[22px] font-bold text-ink">{application.applicant.fullName || "Applicant"}</h1>
+          <h1 className="task-heading">{application.applicant.fullName || "Applicant"}</h1>
           <p className="text-[14.5px] text-ink/60">{application.serviceType}</p>
 
           {signatureFlagged && (

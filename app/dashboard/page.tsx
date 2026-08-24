@@ -21,10 +21,10 @@ export default function DashboardPage() {
   return (
     <main className="min-h-dvh">
       <TopBar />
-      <section className="flow-content mx-auto w-full max-w-lg px-4 py-7 sm:my-10 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card lg:max-w-2xl">
+      <section className="task-shell flow-content">
         <p className="section-eyebrow">Your account</p>
         <div className="mt-1 flex items-end justify-between gap-3">
-          <div><h1 className="font-display text-[25px] font-bold text-ink">Your applications</h1><p className="mt-1 text-[14px] text-ink/60">Mobile {session.mobile}</p></div>
+          <div><h1 className="task-heading">Your applications</h1><p className="mt-1 text-[14px] text-ink/60">Mobile {session.mobile}</p></div>
           <span className="rounded-full bg-go-light px-2.5 py-1 text-[11px] font-bold text-go">Verified</span>
         </div>
 

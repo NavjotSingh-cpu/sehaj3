@@ -42,9 +42,10 @@ export default function DetailsPage() {
     <main className="min-h-dvh">
       <TopBar back={{ href: "/apply/eligibility", label: "Back" }} />
       <ProgressStepper current="details" />
-      <section className="flow-content mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
-        <h1 className="font-display text-[22px] font-bold text-ink">Your details</h1>
-        <p className="mt-1 text-[14.5px] text-ink/60">Exactly as they should appear on your licence.</p>
+      <section className="task-shell flow-content">
+        <p className="section-eyebrow">Step 2 · your details</p>
+        <h1 className="task-heading mt-2">Your details</h1>
+        <p className="task-intro">Exactly as they should appear on your licence.</p>
 
         <form noValidate onSubmit={(e) => { e.preventDefault(); continueNext(); }} className="mt-6 space-y-4">
           <button

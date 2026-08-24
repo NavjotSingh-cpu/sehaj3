@@ -68,9 +68,10 @@ export default function PaymentPage() {
     <main className="min-h-dvh">
       <TopBar back={{ href: `/apply/documents`, label: "Back" }} />
       <ProgressStepper current="payment" />
-      <section className="flow-content mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
-        <h1 className="font-display text-[22px] font-bold text-ink">Pay application fee</h1>
-        <div className="card mt-4 flex items-center justify-between p-4">
+      <section className="task-shell flow-content">
+        <p className="section-eyebrow">Step 4 · payment</p>
+        <h1 className="task-heading mt-2">Pay application fee</h1>
+        <div className="card mt-5 flex items-center justify-between p-4">
           <span className="text-[14.5px] text-ink/60">Learner&rsquo;s Licence fee</span>
           <span className="font-mono text-[20px] font-bold text-ink">₹{AMOUNT}</span>
         </div>

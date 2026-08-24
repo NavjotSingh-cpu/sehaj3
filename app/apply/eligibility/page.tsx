@@ -51,9 +51,10 @@ export default function EligibilityPage() {
     <main className="min-h-dvh">
       <TopBar back={{ href: "/dashboard", label: "Cancel" }} />
       <ProgressStepper current="eligibility" />
-      <section className="flow-content mx-auto w-full max-w-lg px-4 py-6 sm:my-10 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card lg:max-w-2xl">
-        <h1 className="font-display text-[22px] font-bold text-ink">Quick eligibility check</h1>
-        <p className="mt-1 text-[14.5px] text-ink/60">Two questions before we start — this avoids filling a long form only to find out later that you don&rsquo;t qualify.</p>
+      <section className="task-shell flow-content">
+        <p className="section-eyebrow">Step 1 · eligibility</p>
+        <h1 className="task-heading mt-2">Quick eligibility check</h1>
+        <p className="task-intro">Two questions before we start — this avoids filling a long form only to find out later that you don&rsquo;t qualify.</p>
         <div className="mt-6 space-y-5">
           <button type="button" onClick={() => { setDay("15"); setMonth("8"); setYear(String(currentYear - 19)); setHoldsLicence(false); setError(""); }} className="w-full rounded-stamp border border-dashed border-marigold-dark/40 bg-marigold-light py-2.5 text-[13px] font-semibold text-marigold-dark">Fill with test data</button>
           <fieldset>

@@ -34,9 +34,10 @@ export default function DocumentsPage() {
     <main className="min-h-dvh pb-28">
       <TopBar back={{ href: "/apply/details", label: "Back" }} />
       <ProgressStepper current="documents" />
-      <section className="flow-content mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
-        <h1 className="font-display text-[22px] font-bold text-ink">Upload documents</h1>
-        <p className="mt-1 text-[14.5px] text-ink/60">
+      <section className="task-shell flow-content">
+        <p className="section-eyebrow">Step 3 · documents</p>
+        <h1 className="task-heading mt-2">Upload documents</h1>
+        <p className="task-intro">
           Both documents below are mandatory — there&rsquo;s no hidden requirement that appears later. Each
           is checked immediately so you can fix a problem now instead of after payment.
         </p>
@@ -57,7 +58,7 @@ export default function DocumentsPage() {
         </div>
       </section>
 
-      <div className="fixed inset-x-0 bottom-0 border-t border-line bg-paper/95 p-4 backdrop-blur">
+      <div className="fixed inset-x-0 bottom-0 sticky-action">
         <div className="mx-auto max-w-lg sm:max-w-xl lg:max-w-2xl">
           <button onClick={continueNext} disabled={!bothPassed} className="btn-primary w-full">
             {bothPassed ? "Continue to payment" : "Upload and pass both checks to continue"}

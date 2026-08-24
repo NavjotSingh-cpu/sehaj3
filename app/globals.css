@@ -78,6 +78,19 @@
   .application-card__header {
     @apply bg-trust px-5 py-5 text-white sm:px-6;
   }
+  .task-shell {
+    @apply mx-auto w-full max-w-xl px-5 py-7 sm:my-10 sm:rounded-[28px] sm:border sm:border-line sm:bg-white sm:px-10 sm:py-9 sm:shadow-card;
+  }
+  .task-heading {
+    @apply font-display text-[28px] font-bold leading-tight tracking-[-0.035em] text-ink;
+  }
+  .task-intro {
+    @apply mt-2 max-w-lg text-[14.5px] leading-relaxed text-ink/60;
+  }
+  .sticky-action {
+    @apply border-t border-line/80 bg-white/95 p-4 backdrop-blur-md;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
   .service-preview::before {
     content: "";
     @apply absolute inset-x-0 top-0 h-1 bg-trust;
