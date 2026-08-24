@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { TopBar } from "@/components/TopBar";
 import { ProgressStepper } from "@/components/ProgressStepper";
@@ -19,10 +19,15 @@ export default function DetailsPage() {
   const [address, setAddress] = useState(draft.applicant.address ?? "");
   const [bloodGroup, setBloodGroup] = useState(draft.applicant.bloodGroup ?? "");
   const [error, setError] = useState("");
+  const fullNameInput = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!session) router.replace("/login");
   }, [session, router]);
+
+  useEffect(() => {
+    fullNameInput.current?.focus();
+  }, []);
 
   function continueNext() {
     if (!fullName.trim() || !guardianName.trim() || !address.trim() || !bloodGroup) {
@@ -37,11 +42,11 @@ export default function DetailsPage() {
     <main className="min-h-dvh">
       <TopBar back={{ href: "/apply/eligibility", label: "Back" }} />
       <ProgressStepper current="details" />
-      <section className="mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
+      <section className="flow-content mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
         <h1 className="font-display text-[22px] font-bold text-ink">Your details</h1>
         <p className="mt-1 text-[14.5px] text-ink/60">Exactly as they should appear on your licence.</p>
 
-        <div className="mt-6 space-y-4">
+        <form onSubmit={(e) => { e.preventDefault(); continueNext(); }} className="mt-6 space-y-4">
           <button
             type="button"
             onClick={() => {
@@ -58,7 +63,7 @@ export default function DetailsPage() {
 
           <div>
             <label className="field-label">Full name</label>
-            <input className="field-input" value={fullName} onChange={(e) => setFullName(e.target.value)} />
+            <input ref={fullNameInput} className="field-input" value={fullName} onChange={(e) => setFullName(e.target.value)} />
           </div>
           <div>
             <label className="field-label">Father&rsquo;s / Guardian&rsquo;s name</label>
@@ -93,10 +98,10 @@ export default function DetailsPage() {
 
           {error && <p className="text-[13.5px] font-medium text-stop">{error}</p>}
 
-          <button onClick={continueNext} className="btn-primary w-full">
+          <button type="submit" className="btn-primary w-full">
             Continue to documents
           </button>
-        </div>
+        </form>
       </section>
     </main>
   );

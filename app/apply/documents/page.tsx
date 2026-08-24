@@ -34,7 +34,7 @@ export default function DocumentsPage() {
     <main className="min-h-dvh pb-28">
       <TopBar back={{ href: "/apply/details", label: "Back" }} />
       <ProgressStepper current="documents" />
-      <section className="mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
+      <section className="flow-content mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
         <h1 className="font-display text-[22px] font-bold text-ink">Upload documents</h1>
         <p className="mt-1 text-[14.5px] text-ink/60">
           Both documents below are mandatory — there&rsquo;s no hidden requirement that appears later. Each

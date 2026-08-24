@@ -32,12 +32,12 @@
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-stamp bg-trust px-6 py-3.5 text-[15px] font-semibold text-white
-    transition-colors hover:bg-trust-dark active:bg-trust-dark disabled:cursor-not-allowed disabled:bg-line disabled:text-ink/40;
+    transition-all duration-150 hover:bg-trust-dark active:scale-[0.98] active:bg-trust-dark disabled:cursor-not-allowed disabled:bg-line disabled:text-ink/40;
     min-height: 48px;
   }
   .btn-secondary {
     @apply inline-flex items-center justify-center rounded-stamp border border-line bg-white px-6 py-3.5 text-[15px] font-semibold text-ink
-    transition-colors hover:bg-paper active:bg-paper;
+    transition-all duration-150 hover:bg-paper active:scale-[0.98] active:bg-paper;
     min-height: 48px;
   }
   .card {
@@ -51,4 +51,42 @@
     focus:border-trust focus:outline-none focus:ring-2 focus:ring-trust/20;
     min-height: 48px;
   }
+  .flow-content {
+    animation: flow-enter 260ms ease-out both;
+  }
+  .success-feedback {
+    @apply flex items-center gap-3 rounded-stamp bg-go-light p-3 text-left;
+    animation: feedback-enter 220ms ease-out both;
+  }
+  .inline-progress {
+    @apply h-1 overflow-hidden rounded-full bg-marigold-light;
+  }
+  .inline-progress::after {
+    content: "";
+    @apply block h-full w-2/5 rounded-full bg-marigold;
+    animation: progress-sweep 1.25s ease-in-out infinite;
+  }
 }
+
+@keyframes flow-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes feedback-enter {
+  from { opacity: 0; transform: translateY(5px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes stamp-confirm {
+  0% { transform: scale(0.72); opacity: 0; }
+  60% { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes progress-sweep {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(280%); }
+}
+
+.stamp-done { animation: stamp-confirm 460ms cubic-bezier(.2, .9, .2, 1) both; }

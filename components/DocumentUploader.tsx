@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { DocumentRecord, DocumentType } from "@/lib/types";
 import { compressImage } from "@/lib/image";
+import { SuccessFeedback } from "@/components/SuccessFeedback";
 
 const SAMPLE_PATH: Record<DocumentType, string> = {
   photo: "/sample-docs/sample-photo.jpg",
@@ -88,7 +89,7 @@ export function DocumentUploader({
         ) : (
           <span className="text-[13.5px] font-medium text-ink/50">Tap to upload {label.toLowerCase()}</span>
         )}
-        <input type="file" accept="image/*" className="hidden" onChange={handleFile} />
+        <input type="file" accept="image/*" capture={type === "photo" ? "user" : "environment"} className="hidden" onChange={handleFile} />
       </label>
 
       <button
@@ -99,7 +100,7 @@ export function DocumentUploader({
         Use a sample {label.toLowerCase()} instead (for testing)
       </button>
 
-      {checking && <p className="mt-3 text-[13.5px] font-medium text-trust">Checking your document…</p>}
+      {checking && <div className="mt-3" role="status" aria-live="polite"><p className="text-[13.5px] font-medium text-trust">Checking your document…</p><div className="inline-progress mt-2" /></div>}
 
       {result && !checking && (
         <div
@@ -107,7 +108,7 @@ export function DocumentUploader({
             result.passed ? "bg-go-light text-go" : "bg-stop-light text-stop"
           }`}
         >
-          <p className="font-semibold">{result.passed ? "Looks good" : "Needs attention"}</p>
+          {result.passed ? <SuccessFeedback title="Document check passed" /> : <p className="font-semibold">Needs attention</p>}
           {result.issues.length > 0 && (
             <ul className="mt-1 list-disc pl-4">
               {result.issues.map((issue) => (

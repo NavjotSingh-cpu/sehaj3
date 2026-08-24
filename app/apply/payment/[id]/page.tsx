@@ -6,6 +6,7 @@ import { TopBar } from "@/components/TopBar";
 import { ProgressStepper } from "@/components/ProgressStepper";
 import { useStore } from "@/lib/store";
 import type { PaymentRecord } from "@/lib/types";
+import { SuccessFeedback } from "@/components/SuccessFeedback";
 
 const AMOUNT = 350;
 
@@ -46,15 +47,19 @@ export default function PaymentPage() {
 
   async function pay() {
     setPaying(true);
-    const res = await fetch("/api/payment/simulate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: AMOUNT, method, demoOutcome }),
-    });
-    const record: PaymentRecord = await res.json();
-    recordPayment(id, record);
-    setLatest(record);
-    setPaying(false);
+    if ("vibrate" in navigator) navigator.vibrate(10);
+    try {
+      const res = await fetch("/api/payment/simulate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: AMOUNT, method, demoOutcome }),
+      });
+      const record: PaymentRecord = await res.json();
+      recordPayment(id, record);
+      setLatest(record);
+    } finally {
+      setPaying(false);
+    }
   }
 
   if (!application) return null;
@@ -63,7 +68,7 @@ export default function PaymentPage() {
     <main className="min-h-dvh">
       <TopBar back={{ href: `/apply/documents`, label: "Back" }} />
       <ProgressStepper current="payment" />
-      <section className="mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
+      <section className="flow-content mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
         <h1 className="font-display text-[22px] font-bold text-ink">Pay application fee</h1>
         <div className="card mt-4 flex items-center justify-between p-4">
           <span className="text-[14.5px] text-ink/60">Learner&rsquo;s Licence fee</span>
@@ -119,6 +124,7 @@ export default function PaymentPage() {
             <button onClick={pay} disabled={paying} className="btn-primary mt-5 w-full">
               {paying ? "Processing…" : `Pay ₹${AMOUNT}`}
             </button>
+            {paying && <div className="mt-3" role="status" aria-live="polite"><p className="text-center text-[13px] font-medium text-trust">Securely checking the payment response…</p><div className="inline-progress mt-2" /></div>}
           </>
         ) : null}
 
@@ -139,6 +145,9 @@ export default function PaymentPage() {
               {latest.status === "failed_debited" && "Payment not matched — refund started"}
             </p>
             <p className="mt-1 text-[13.5px] leading-snug text-ink/65">{latest.note}</p>
+            {latest.status === "success" && <SuccessFeedback className="mt-3" title="Payment confirmed" description="Your fee is recorded. You can now choose a test slot." />}
+            {latest.status === "pending_bank_confirmation" && <div className="mt-3" role="status" aria-live="polite"><p className="text-[13px] font-medium text-marigold-dark">Your bank is confirming this payment. You do not need to pay again.</p><div className="inline-progress mt-2" /></div>}
+            {latest.status === "failed_debited" && <SuccessFeedback className="mt-3" title="Refund started" description="We could not match this payment, so the refund path is already underway." />}
           </div>
         )}
 

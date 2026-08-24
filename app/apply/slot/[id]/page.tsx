@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { TopBar } from "@/components/TopBar";
 import { ProgressStepper } from "@/components/ProgressStepper";
 import { useStore } from "@/lib/store";
+import { SuccessFeedback } from "@/components/SuccessFeedback";
 
 function nextWeekdays(n: number): string[] {
   const days: string[] = [];
@@ -28,20 +29,23 @@ export default function SlotPage() {
   const days = useMemo(() => nextWeekdays(6), []);
   const [date, setDate] = useState<string | null>(null);
   const [time, setTime] = useState<string | null>(null);
+  const [booking, setBooking] = useState(false);
 
   if (!application) return null;
 
   function confirm() {
     if (!date || !time) return;
     bookSlot(id, { date, time, rtoName: RTO });
-    router.push(`/apply/confirmation/${id}`);
+    setBooking(true);
+    if ("vibrate" in navigator) navigator.vibrate(10);
+    window.setTimeout(() => router.push(`/apply/confirmation/${id}`), 650);
   }
 
   return (
     <main className="min-h-dvh pb-28">
       <TopBar back={{ href: `/apply/payment/${id}`, label: "Back" }} />
       <ProgressStepper current="slot" />
-      <section className="mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
+      <section className="flow-content mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-6">
         <h1 className="font-display text-[22px] font-bold text-ink">Book your test slot</h1>
         <p className="mt-1 text-[14.5px] text-ink/60">
           Slots stay reserved for 10 minutes once you pick them — no racing other applicants for the same
@@ -85,12 +89,13 @@ export default function SlotPage() {
           <p className="text-[13.5px] text-ink/60">Test centre</p>
           <p className="text-[15px] font-semibold text-ink">{RTO}</p>
         </div>
+        {booking && <SuccessFeedback className="mt-5" title="Slot booked" description="Your appointment has been reserved. Opening your confirmation…" />}
       </section>
 
       <div className="fixed inset-x-0 bottom-0 border-t border-line bg-paper/95 p-4 backdrop-blur">
         <div className="mx-auto max-w-lg sm:max-w-xl lg:max-w-2xl">
-          <button onClick={confirm} disabled={!date || !time} className="btn-primary w-full">
-            Confirm slot
+          <button onClick={confirm} disabled={!date || !time || booking} className="btn-primary w-full">
+            {booking ? "Booking slot…" : "Confirm slot"}
           </button>
         </div>
       </div>

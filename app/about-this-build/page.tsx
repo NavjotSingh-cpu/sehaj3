@@ -42,7 +42,7 @@ export default function AboutThisBuildPage() {
 
         <Section title="Architecture">
           <p>
-            Next.js (App Router, TypeScript) with server API routes standing in for backend services,
+            Next.js 16 (App Router, TypeScript) with server API routes standing in for backend services,
             deployed as a single Vercel project. State is client-owned (Zustand + localStorage) rather than
             a server database: Vercel&rsquo;s serverless functions are stateless between invocations, and
             adding a hosted database was judged unnecessary complexity for a prototype whose job is to prove
@@ -66,7 +66,7 @@ export default function AboutThisBuildPage() {
 
         <Section title="Built with">
           <p>
-            Next.js 15, TypeScript, Tailwind CSS, Zustand, and the OpenAI API (GPT-4o-mini). See the
+            Next.js 16, TypeScript, Tailwind CSS, Zustand, and the OpenAI API (GPT-4o-mini). See the
             submission notes for how Codex was used in building and refining this prototype.
           </p>
         </Section>

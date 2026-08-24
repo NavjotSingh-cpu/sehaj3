@@ -94,7 +94,7 @@ export default function StatusPage() {
   return (
     <main className="min-h-dvh pb-16">
       <TopBar back={{ href: "/dashboard", label: "Dashboard" }} />
-      <section className="mx-auto w-full max-w-lg px-4 py-6 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-4xl lg:grid lg:grid-cols-[1.3fr_1fr] lg:gap-10 lg:px-12">
+      <section className="flow-content mx-auto w-full max-w-lg px-4 py-6 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-4xl lg:grid lg:grid-cols-[1.3fr_1fr] lg:gap-10 lg:px-12">
         <div>
           <p className="font-mono text-[13px] font-semibold text-ink/45">{application.id}</p>
           <h1 className="font-display text-[22px] font-bold text-ink">{application.applicant.fullName || "Applicant"}</h1>
@@ -142,6 +142,7 @@ export default function StatusPage() {
           <button onClick={askAdvocate} disabled={asking} className="btn-secondary mt-3 w-full">
             {asking ? "Reading your application…" : "Ask what's going on"}
           </button>
+          {asking && <div className="mt-3" role="status" aria-live="polite"><div className="inline-progress" /></div>}
 
           {advocate && (
             <div className="mt-3 rounded-stamp bg-trust-light p-3.5">

@@ -15,9 +15,9 @@ export default function ConfirmationPage() {
   return (
     <main className="min-h-dvh">
       <TopBar back={{ href: "/dashboard", label: "Dashboard" }} />
-      <section className="mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-10 text-center">
+      <section className="flow-content mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-10 text-center">
         <div className="flex justify-center">
-          <Stamp state="done" />
+          <Stamp state="done" animate />
         </div>
         <h1 className="mt-4 font-display text-[24px] font-bold text-ink">Application submitted</h1>
         <p className="mt-1 font-mono text-[15px] font-semibold text-trust">{application.id}</p>
