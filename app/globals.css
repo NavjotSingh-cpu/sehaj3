@@ -14,8 +14,7 @@
   body {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     background:
-      radial-gradient(circle at 80% 70%, rgba(227, 244, 239, 0.78), transparent 30rem),
-      linear-gradient(180deg, #F7F7F0 0, #F7F7F0 100%);
+      linear-gradient(180deg, #F4F7FB 0, #FFFFFF 38rem);
     min-width: 320px;
   }
   h1, h2, h3 {
@@ -25,11 +24,11 @@
     outline: 3px solid #007A68;
     outline-offset: 3px;
   }
-  ::selection { background: #E3F4EF; color: #0B2E2B; }
+  ::selection { background: #EAF1FF; color: #14213D; }
   * { scrollbar-width: thin; }
   *::-webkit-scrollbar { width: 10px; height: 10px; }
-  *::-webkit-scrollbar-thumb { background: #A9C8BF; border: 3px solid #F7F7F0; border-radius: 999px; }
-  *::-webkit-scrollbar-thumb:hover { background: #6EA89A; }
+  *::-webkit-scrollbar-thumb { background: #B7C7DF; border: 3px solid #F4F7FB; border-radius: 999px; }
+  *::-webkit-scrollbar-thumb:hover { background: #7E97BA; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -74,6 +73,26 @@
   .application-card {
     @apply w-full overflow-hidden rounded-[26px] border border-line bg-white shadow-card;
     animation: card-enter 520ms cubic-bezier(.2,.8,.2,1) both;
+  }
+  .licence-record {
+    @apply overflow-hidden rounded-[20px] border border-white/20 bg-white shadow-[0_24px_60px_rgba(0,0,0,0.2)];
+    animation: card-enter 520ms cubic-bezier(.2,.8,.2,1) both;
+  }
+  .licence-record__band {
+    @apply flex items-start justify-between bg-gradient-to-br from-[#162B58] to-[#2563EB] p-5 text-white sm:p-6;
+  }
+  .hero-surface {
+    @apply bg-ink;
+    background-image: radial-gradient(circle at 82% 12%, rgba(37,99,235,.36), transparent 23rem), linear-gradient(135deg, #14213D 0%, #101B33 100%);
+  }
+  .hero-kicker {
+    @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.08em] text-white/70;
+  }
+  .btn-hero {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-stamp bg-white px-5 py-3 text-[15px] font-bold text-ink shadow-sm transition-all duration-200 hover:-translate-y-px hover:bg-trust-light active:translate-y-0 active:scale-[0.985];
+  }
+  .btn-hero-secondary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-stamp border border-white/25 px-5 py-3 text-[15px] font-bold text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10 active:scale-[0.985];
   }
   .application-card__header {
     @apply bg-trust px-5 py-5 text-white sm:px-6;

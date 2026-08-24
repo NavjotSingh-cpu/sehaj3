@@ -5,28 +5,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0B2E2B",
-        paper: "#F7F7F0",
+        ink: "#14213D",
+        paper: "#F4F7FB",
         card: "#FFFFFF",
         trust: {
-          DEFAULT: "#007A68",
-          dark: "#005F52",
-          light: "#E3F4EF",
+          DEFAULT: "#2563EB",
+          dark: "#1D4ED8",
+          light: "#EAF1FF",
         },
         marigold: {
-          DEFAULT: "#E8A33D",
-          dark: "#C17F1F",
-          light: "#FBEDD4",
+          DEFAULT: "#F59E0B",
+          dark: "#B45309",
+          light: "#FFF4D6",
         },
         go: {
-          DEFAULT: "#1E8A5F",
-          light: "#E3F5EC",
+          DEFAULT: "#17805B",
+          light: "#E7F7EF",
         },
         stop: {
           DEFAULT: "#C23B3B",
           light: "#FBEAEA",
         },
-        line: "#DDE5E1",
+        line: "#DCE4F0",
       },
       fontFamily: {
         display: ["ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"],
@@ -34,10 +34,10 @@ const config: Config = {
         mono: ["SFMono-Regular", "Consolas", "Liberation Mono", "monospace"],
       },
       borderRadius: {
-        stamp: "18px",
+        stamp: "14px",
       },
       boxShadow: {
-        card: "0 1px 2px rgba(11,46,43,0.04), 0 14px 32px rgba(11,46,43,0.06)",
+        card: "0 2px 4px rgba(20,33,61,0.03), 0 14px 38px rgba(20,33,61,0.08)",
       },
     },
   },

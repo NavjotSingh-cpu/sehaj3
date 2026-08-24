@@ -3,15 +3,15 @@ version: alpha
 name: Sahaj
 description: A phone-first Learner’s Licence prototype that feels like a calm, auditable service record.
 colors:
-  ink: "#0B2E2B"
-  paper: "#F7F7F0"
+  ink: "#14213D"
+  paper: "#F4F7FB"
   surface: "#FFFFFF"
-  trust: "#007A68"
-  trust-soft: "#E3F4EF"
+  trust: "#2563EB"
+  trust-soft: "#EAF1FF"
   marigold: "#E8A33D"
   success: "#1E8A5F"
   error: "#C23B3B"
-  line: "#DDE5E1"
+  line: "#DCE4F0"
 typography:
   display:
     fontFamily: "ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif"
@@ -40,7 +40,7 @@ components:
 
 ### Creative North Star
 
-Sahaj is a **service receipt**, not a startup landing page: a citizen should feel that every action is recorded, understandable, and recoverable. The signature visual is the application-journey record—a compact vertical timeline that makes the service’s promise visible before a person begins.
+Sahaj is a **service record**, not a startup landing page: a citizen should feel that every action is recorded, understandable, and recoverable. The signature visual is a high-contrast licence application record that makes the service promise visible before a person begins.
 
 ### Product context and register
 
@@ -53,7 +53,7 @@ Sahaj is a **service receipt**, not a startup landing page: a citizen should fee
 
 ## Colors
 
-Deep teal and a warm off-white canvas establish a calm, service-first contrast. Teal is reserved for the primary path and focus; marigold is guidance, never a warning; green and red are semantic state colors. This deliberate palette change adapts the user-provided Sahaj 2 reference while preserving the existing semantic states. Surfaces stay white with soft borders so the information hierarchy comes from spacing and type, not a pile of colored cards.
+Midnight blue establishes authority at the navigation and service entry point; bright blue guides the primary path; pale blue supports information; marigold is guidance, never a warning; green and red are semantic state colors. Bright task surfaces remain white so dense form work stays calm and legible.
 
 ## Typography
 
@@ -65,7 +65,7 @@ Content uses a single readable column on phones, expands to a narrow desktop tas
 
 ## Elevation & Depth
 
-Static content uses a light border first and a restrained cool shadow second. The sticky header is translucent only to preserve location context; it never obscures focus.
+Static task content uses a light border first and a restrained cool shadow second. The sticky header is a dark service bar that anchors location without competing with form content.
 
 ## Shapes
 

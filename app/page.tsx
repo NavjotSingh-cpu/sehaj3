@@ -4,25 +4,33 @@ import { ApplicationPreview } from "@/components/ApplicationPreview";
 
 export default function Home() {
   return (
-    <main className="min-h-dvh">
+    <main className="min-h-dvh bg-paper">
       <TopBar />
-      <section className="hero-shell mx-auto grid max-w-6xl gap-12 px-5 py-10 sm:px-8 sm:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(340px,.8fr)] lg:items-center lg:gap-16 lg:py-20">
-        <div className="max-w-2xl flow-content">
-          <p className="inline-flex items-center gap-2 rounded-full bg-trust-light px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.045em] text-trust"><span className="h-1.5 w-1.5 rounded-full bg-trust" aria-hidden /> Learner&rsquo;s licence, made clear</p>
-          <h1 className="mt-5 max-w-[12ch] font-display text-[38px] font-bold leading-[1.03] tracking-[-0.052em] text-ink sm:text-[52px] lg:max-w-[13ch] lg:text-[58px]">A calmer way to get your learner&rsquo;s licence.</h1>
-          <p className="mt-5 max-w-[36rem] text-[16px] leading-[1.62] text-ink/65 sm:text-[17px]">Sahaj replaces confusing status screens with a step-by-step journey that tells you what you need, why you need it, and what happens next.</p>
-          <div className="mt-7 grid gap-3 sm:flex sm:flex-row">
-            <Link href="/login" className="btn-primary w-full sm:min-w-52 sm:w-auto">Start my application <span aria-hidden className="ml-2 text-base">→</span></Link>
-            <Link href="/status/LL-2026-4471209" className="btn-secondary w-full sm:min-w-48 sm:w-auto">View a real example</Link>
+      <section className="hero-surface">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20 lg:py-20">
+          <div className="flow-content">
+            <p className="hero-kicker"><span className="h-2 w-2 rounded-full bg-marigold" aria-hidden />A clearer learner&rsquo;s licence service</p>
+            <h1 className="mt-5 max-w-[11ch] font-display text-[43px] font-bold leading-[1.01] tracking-[-0.06em] text-white sm:text-[58px] lg:text-[66px]">Your application should not leave you guessing.</h1>
+            <p className="mt-6 max-w-[37rem] text-[16px] leading-[1.65] text-white/70 sm:text-[18px]">A guided service for your learner&rsquo;s licence. Check documents before payment, see clear status at every step, and keep one reference for your RTO visit.</p>
+            <div className="mt-8 grid gap-3 sm:flex">
+              <Link href="/login" className="btn-hero">Start my application <span aria-hidden>→</span></Link>
+              <Link href="/status/LL-2026-4471209" className="btn-hero-secondary">View sample status</Link>
+            </div>
+            <p className="mt-6 text-[12px] text-white/45">Demo only · No Aadhaar, SMS, payment or government system is used</p>
           </div>
-          <p className="mt-5 text-[12px] text-ink/45">Demo only · No Aadhaar, SMS, payment or government system is used</p>
+          <div className="flow-content mx-auto w-full max-w-[405px] lg:justify-self-end"><ApplicationPreview /></div>
         </div>
-        <div className="flow-content mx-auto w-full max-w-[405px] lg:justify-self-end"><ApplicationPreview /></div>
       </section>
-      <section className="mx-auto grid max-w-6xl gap-6 border-t border-line/80 px-5 py-8 sm:grid-cols-3 sm:px-8 lg:py-10">
-        {[["Clear before you start", "Know the documents, fee and next step before you invest your time."], ["No silent waiting", "Every application gets a real explanation, not a generic status line."], ["Help when it matters", "A guided path for payments, documents and your RTO visit."]].map(([title, detail]) => <div key={title}><p className="text-[15px] font-bold text-ink">{title}</p><p className="mt-2 max-w-xs text-[13.5px] leading-relaxed text-ink/60">{detail}</p></div>)}
+      <section className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
+        <div className="grid gap-px overflow-hidden rounded-[18px] border border-line bg-line sm:grid-cols-3">
+          {[
+            ["01", "Know before you begin", "See the documents, fee and steps first — not after you fill a form."],
+            ["02", "Fix issues early", "Get a document check before you reach payment or the RTO visit."],
+            ["03", "Track every update", "Your reference number makes every status clear and traceable."],
+          ].map(([number, title, detail]) => <article key={number} className="bg-white p-5 sm:p-6"><p className="font-mono text-[11px] font-bold text-trust">{number}</p><h2 className="mt-5 text-[17px] font-bold tracking-[-0.02em] text-ink">{title}</h2><p className="mt-2 text-[13.5px] leading-relaxed text-ink/60">{detail}</p></article>)}
+        </div>
       </section>
-      <section className="mx-auto max-w-6xl px-5 pb-12 pt-4 sm:px-8 lg:pb-16"><p className="section-eyebrow">Built for a better citizen journey</p><h2 className="mt-2 max-w-xl font-display text-[27px] font-bold tracking-[-0.03em] text-ink sm:text-[34px]">No surprise rejections. No status black hole.</h2><Link href="/about-this-build" className="mt-5 inline-flex text-[14px] font-bold text-trust underline underline-offset-4">How this prototype works →</Link></section>
+      <section className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 border-t border-line px-5 py-10 sm:px-8 lg:flex-row lg:items-end"><div><p className="section-eyebrow">Built for the citizen, not the portal</p><h2 className="mt-2 max-w-xl font-display text-[29px] font-bold leading-tight tracking-[-0.04em] text-ink">A service that explains itself at every step.</h2></div><Link href="/about-this-build" className="btn-secondary">See how the demo works</Link></section>
     </main>
   );
 }
