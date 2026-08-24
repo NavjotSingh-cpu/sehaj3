@@ -11,6 +11,7 @@
   }
   body {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    background-image: radial-gradient(circle at 50% -15%, rgba(232, 240, 250, 0.9), transparent 34rem);
   }
   h1, h2, h3 {
     @apply font-display;
@@ -31,28 +32,34 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-stamp bg-trust px-6 py-3.5 text-[15px] font-semibold text-white
-    transition-all duration-150 hover:bg-trust-dark active:scale-[0.98] active:bg-trust-dark disabled:cursor-not-allowed disabled:bg-line disabled:text-ink/40;
+    @apply inline-flex items-center justify-center rounded-stamp bg-trust px-5 py-3.5 text-[15px] font-semibold text-white shadow-sm
+    transition-all duration-150 hover:-translate-y-px hover:bg-trust-dark hover:shadow-md active:translate-y-0 active:scale-[0.98] active:bg-trust-dark disabled:cursor-not-allowed disabled:transform-none disabled:bg-line disabled:text-ink/40 disabled:shadow-none;
     min-height: 48px;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-stamp border border-line bg-white px-6 py-3.5 text-[15px] font-semibold text-ink
-    transition-all duration-150 hover:bg-paper active:scale-[0.98] active:bg-paper;
+    @apply inline-flex items-center justify-center rounded-stamp border border-line bg-white px-5 py-3.5 text-[15px] font-semibold text-ink shadow-sm
+    transition-all duration-150 hover:-translate-y-px hover:border-trust/30 hover:bg-trust-light/40 active:translate-y-0 active:scale-[0.98] active:bg-paper;
     min-height: 48px;
   }
   .card {
-    @apply rounded-stamp border border-line bg-card shadow-card;
+    @apply rounded-stamp border border-line/90 bg-card shadow-card;
   }
   .field-label {
-    @apply mb-1.5 block text-[13px] font-medium text-ink/70;
+    @apply mb-1.5 block text-[12.5px] font-semibold tracking-[0.01em] text-ink/70;
   }
   .field-input {
-    @apply w-full rounded-stamp border border-line bg-white px-4 py-3 text-[16px] text-ink placeholder:text-ink/35
-    focus:border-trust focus:outline-none focus:ring-2 focus:ring-trust/20;
+    @apply w-full rounded-stamp border border-line bg-white px-4 py-3 text-[16px] text-ink placeholder:text-ink/35 shadow-sm
+    transition-colors focus:border-trust focus:outline-none focus:ring-4 focus:ring-trust/10;
     min-height: 48px;
   }
   .flow-content {
     animation: flow-enter 260ms ease-out both;
+  }
+  .utility-panel {
+    @apply rounded-stamp border border-line/90 bg-white shadow-card;
+  }
+  .section-eyebrow {
+    @apply font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-trust;
   }
   .success-feedback {
     @apply flex items-center gap-3 rounded-stamp bg-go-light p-3 text-left;

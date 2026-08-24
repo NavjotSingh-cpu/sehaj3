@@ -34,10 +34,10 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
       },
       borderRadius: {
-        stamp: "6px",
+        stamp: "12px",
       },
       boxShadow: {
-        card: "0 1px 2px rgba(20,33,61,0.06), 0 1px 12px rgba(20,33,61,0.05)",
+        card: "0 1px 2px rgba(20,33,61,0.04), 0 10px 28px rgba(20,33,61,0.055)",
       },
     },
   },

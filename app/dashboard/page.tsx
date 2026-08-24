@@ -21,28 +21,33 @@ export default function DashboardPage() {
   return (
     <main className="min-h-dvh">
       <TopBar />
-      <section className="mx-auto w-full max-w-lg px-4 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card sm:my-10 lg:max-w-2xl py-8">
-        <h1 className="font-display text-[24px] font-bold text-ink">Your applications</h1>
-        <p className="mt-1 text-[14.5px] text-ink/60">Logged in as {session.mobile}</p>
+      <section className="flow-content mx-auto w-full max-w-lg px-4 py-7 sm:my-10 sm:max-w-xl sm:rounded-3xl sm:border sm:border-line sm:bg-card sm:px-10 sm:shadow-card lg:max-w-2xl">
+        <p className="section-eyebrow">Your account</p>
+        <div className="mt-1 flex items-end justify-between gap-3">
+          <div><h1 className="font-display text-[25px] font-bold text-ink">Your applications</h1><p className="mt-1 text-[14px] text-ink/60">Mobile {session.mobile}</p></div>
+          <span className="rounded-full bg-go-light px-2.5 py-1 text-[11px] font-bold text-go">Verified</span>
+        </div>
 
         <div className="mt-6 space-y-3">
           {applications.length === 0 && (
-            <div className="card p-5 text-center">
-              <p className="text-[14.5px] text-ink/60">You don&rsquo;t have any applications yet.</p>
+            <div className="card border-dashed p-6 text-center">
+              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-trust-light text-xl text-trust" aria-hidden>+</div>
+              <p className="mt-3 text-[15px] font-semibold text-ink">No application yet</p>
+              <p className="mt-1 text-[13.5px] text-ink/60">Start when you have your photo and signature ready.</p>
             </div>
           )}
           {applications.map((a) => (
             <Link
               key={a.id}
               href={`/status/${a.id}`}
-              className="card flex items-center justify-between p-4"
+              className="card flex items-center justify-between p-4 transition-all duration-150 hover:-translate-y-px hover:border-trust/30 hover:shadow-md"
             >
               <div>
                 <p className="font-mono text-[13px] font-semibold text-ink/50">{a.id}</p>
                 <p className="text-[15px] font-semibold text-ink">{a.serviceType}</p>
                 <p className="text-[13.5px] text-ink/60">{STAGE_LABEL[a.stage]}</p>
               </div>
-              <span aria-hidden className="text-ink/30">
+              <span aria-hidden className="flex h-8 w-8 items-center justify-center rounded-full bg-trust-light text-trust">
                 →
               </span>
             </Link>
