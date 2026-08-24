@@ -1,36 +1,24 @@
-const steps = [
-  ["1", "Check eligibility", "A quick check before you spend time on a form."],
-  ["2", "Verify documents", "Know what needs fixing before payment."],
-  ["3", "Pay and book", "Keep a reference number for every update."],
-];
+const nextSteps = ["Confirm application details", "Pay the ₹350 demo fee", "Choose your RTO visit"];
 
 export function ApplicationPreview() {
   return (
-    <aside className="service-preview" aria-label="How the application journey works">
-      <div className="flex items-start justify-between gap-4 border-b border-trust/10 pb-4">
-        <div>
-          <p className="font-mono text-[11px] font-semibold tracking-[0.12em] text-trust">APPLICATION JOURNEY</p>
-          <p className="mt-1 text-[17px] font-semibold text-ink">One clear record, from start to slot.</p>
-        </div>
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-go-light text-go" aria-hidden>✓</span>
+    <aside className="application-card" aria-label="Sample Sahaj application status">
+      <div className="application-card__header">
+        <p className="text-[15px] font-bold">Your application</p>
+        <p className="mt-1 text-[11.5px] text-white/75">LL-2026-4471209 · Demo application</p>
       </div>
-      <ol className="mt-4 space-y-0">
-        {steps.map(([number, title, detail], index) => (
-          <li key={number} className="flex gap-3">
-            <div className="flex flex-col items-center">
-              <span className={`flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold ${index === 0 ? "bg-trust text-white" : "border border-line bg-white text-ink/50"}`}>{number}</span>
-              {index < steps.length - 1 && <span className="h-8 w-px bg-line" aria-hidden />}
-            </div>
-            <div className="pb-4 pt-0.5">
-              <p className="text-[14px] font-semibold text-ink">{title}</p>
-              <p className="mt-0.5 text-[12.5px] leading-snug text-ink/60">{detail}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-      <div className="mt-1 rounded-stamp border border-go/15 bg-go-light/60 p-3">
-        <p className="text-[12px] font-semibold text-go">Your reference stays with your application</p>
-        <p className="mt-0.5 text-[11.5px] leading-snug text-ink/55">Use it to view payment, document, and slot updates without re-entering your details.</p>
+      <div className="p-5 sm:p-6">
+        <div className="rounded-stamp bg-trust-light p-3.5">
+          <div className="flex items-start gap-3">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-trust text-[17px] font-bold text-white" aria-hidden>✓</span>
+            <div><p className="text-[14px] font-bold text-ink">Documents checked</p><p className="mt-0.5 text-[12px] leading-snug text-ink/65">Everything looks good. You can continue.</p></div>
+          </div>
+        </div>
+        <p className="mt-6 font-mono text-[10px] font-bold tracking-[0.1em] text-ink/55">WHAT HAPPENS NEXT</p>
+        <ol className="mt-3 space-y-2.5">
+          {nextSteps.map((step, index) => <li key={step} className="flex items-center gap-3"><span className={`h-4 w-4 shrink-0 rounded-full border-2 ${index === 0 ? "border-trust bg-trust" : "border-trust/25 bg-white"}`} aria-hidden /><span className={`text-[12.5px] ${index === 0 ? "font-bold text-ink" : "text-ink/55"}`}>{step}</span></li>)}
+        </ol>
+        <div className="mt-5 flex items-center justify-between gap-3"><p className="text-[11.5px] leading-snug text-ink/50">A clear status at each step.</p><span className="btn-primary min-h-10 shrink-0 px-4 py-2 text-[12px]">Continue</span></div>
       </div>
     </aside>
   );

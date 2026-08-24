@@ -14,22 +14,22 @@
   body {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     background:
-      radial-gradient(circle at 100% -10%, rgba(232, 240, 250, 0.95), transparent 28rem),
-      linear-gradient(180deg, #ffffff 0, #f5f6f5 52rem);
+      radial-gradient(circle at 80% 70%, rgba(227, 244, 239, 0.78), transparent 30rem),
+      linear-gradient(180deg, #F7F7F0 0, #F7F7F0 100%);
     min-width: 320px;
   }
   h1, h2, h3 {
     @apply font-display;
   }
   :focus-visible {
-    outline: 3px solid #1D5FA3;
+    outline: 3px solid #007A68;
     outline-offset: 3px;
   }
-  ::selection { background: #E8F0FA; color: #14213D; }
+  ::selection { background: #E3F4EF; color: #0B2E2B; }
   * { scrollbar-width: thin; }
   *::-webkit-scrollbar { width: 10px; height: 10px; }
-  *::-webkit-scrollbar-thumb { background: #B8C4CF; border: 3px solid #F5F6F5; border-radius: 999px; }
-  *::-webkit-scrollbar-thumb:hover { background: #8798A8; }
+  *::-webkit-scrollbar-thumb { background: #A9C8BF; border: 3px solid #F7F7F0; border-radius: 999px; }
+  *::-webkit-scrollbar-thumb:hover { background: #6EA89A; }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -69,7 +69,14 @@
     @apply rounded-stamp border border-line/90 bg-white shadow-card;
   }
   .service-preview {
-    @apply relative overflow-hidden rounded-[20px] border border-trust/15 bg-white p-5 shadow-card sm:p-6;
+    @apply relative overflow-hidden rounded-[28px] border border-trust/15 bg-white p-5 shadow-card sm:p-6;
+  }
+  .application-card {
+    @apply w-full max-w-[405px] overflow-hidden rounded-[28px] border border-line bg-white shadow-card;
+    animation: card-enter 520ms cubic-bezier(.2,.8,.2,1) both;
+  }
+  .application-card__header {
+    @apply bg-trust px-5 py-5 text-white sm:px-6;
   }
   .service-preview::before {
     content: "";
@@ -111,6 +118,11 @@
 
 @keyframes feedback-enter {
   from { opacity: 0; transform: translateY(5px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes card-enter {
+  from { opacity: 0; transform: translateY(14px) scale(.985); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 

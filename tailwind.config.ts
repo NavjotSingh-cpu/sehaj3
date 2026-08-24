@@ -5,13 +5,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#14213D",
-        paper: "#F5F6F5",
+        ink: "#0B2E2B",
+        paper: "#F7F7F0",
         card: "#FFFFFF",
         trust: {
-          DEFAULT: "#1D5FA3",
-          dark: "#154779",
-          light: "#E8F0FA",
+          DEFAULT: "#007A68",
+          dark: "#005F52",
+          light: "#E3F4EF",
         },
         marigold: {
           DEFAULT: "#E8A33D",
@@ -26,7 +26,7 @@ const config: Config = {
           DEFAULT: "#C23B3B",
           light: "#FBEAEA",
         },
-        line: "#E2E4E2",
+        line: "#DDE5E1",
       },
       fontFamily: {
         display: ["Avenir Next", "Avenir", "Segoe UI", "sans-serif"],
@@ -34,10 +34,10 @@ const config: Config = {
         mono: ["SFMono-Regular", "Consolas", "Liberation Mono", "monospace"],
       },
       borderRadius: {
-        stamp: "12px",
+        stamp: "18px",
       },
       boxShadow: {
-        card: "0 1px 2px rgba(20,33,61,0.04), 0 10px 28px rgba(20,33,61,0.055)",
+        card: "0 1px 2px rgba(11,46,43,0.04), 0 14px 32px rgba(11,46,43,0.06)",
       },
     },
   },

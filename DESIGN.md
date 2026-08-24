@@ -3,15 +3,15 @@ version: alpha
 name: Sahaj
 description: A phone-first Learner’s Licence prototype that feels like a calm, auditable service record.
 colors:
-  ink: "#14213D"
-  paper: "#F5F6F5"
+  ink: "#0B2E2B"
+  paper: "#F7F7F0"
   surface: "#FFFFFF"
-  trust: "#1D5FA3"
-  trust-soft: "#E8F0FA"
+  trust: "#007A68"
+  trust-soft: "#E3F4EF"
   marigold: "#E8A33D"
   success: "#1E8A5F"
   error: "#C23B3B"
-  line: "#E2E4E2"
+  line: "#DDE5E1"
 typography:
   display:
     fontFamily: "Avenir Next, Avenir, Segoe UI, sans-serif"
@@ -53,7 +53,7 @@ Sahaj is a **service receipt**, not a startup landing page: a citizen should fee
 
 ## Colors
 
-Ink and paper establish calm contrast. Trust blue is reserved for the primary path and focus; marigold is guidance, never a warning; green and red are semantic state colors. Surfaces stay white with soft borders so the information hierarchy comes from spacing and type, not a pile of colored cards.
+Deep teal and a warm off-white canvas establish a calm, service-first contrast. Teal is reserved for the primary path and focus; marigold is guidance, never a warning; green and red are semantic state colors. This deliberate palette change adapts the user-provided Sahaj 2 reference while preserving the existing semantic states. Surfaces stay white with soft borders so the information hierarchy comes from spacing and type, not a pile of colored cards.
 
 ## Typography
 
